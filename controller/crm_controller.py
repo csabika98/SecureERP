@@ -1,3 +1,4 @@
+import random
 from model.crm import crm
 from view import terminal as view
 
@@ -7,7 +8,24 @@ def list_customers():
 
 
 def add_customer():
-    view.print_error_message("Not implemented yet.")
+    id = random.randint(0,100)
+    print(id)
+    whats_your_name = input("What's your name? ")
+    whats_your_email = input("What's your email? ")
+    you_are_subscribed =input("You are subscribed ? 1.   yes  0.  no ")
+    whats_your_name = whats_your_name + ";"
+    whats_your_email = whats_your_email + ";"
+    you_are_subscribed = you_are_subscribed + ";"
+    
+
+    with open("model/crm/crm.csv", "a" ) as import_file:
+         import_file.write(whats_your_name)
+         import_file.write(whats_your_email)
+         import_file.write(you_are_subscribed)
+         import_file.write(str(id))
+         import_file.write("\n")
+
+
 
 
 def update_customer():
