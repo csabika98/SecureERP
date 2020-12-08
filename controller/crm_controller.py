@@ -1,4 +1,5 @@
 import random
+import sys
 from model.crm import crm
 from view import terminal as view
 
@@ -32,17 +33,29 @@ def add_customer():
 
 
 
-
 def update_customer():
     view.print_error_message("Not implemented yet.")
 
 
 def delete_customer():
-    view.print_error_message("Not implemented yet.")
+    with open("model/crm/crm.csv", "r") as customer_list:
+        for line in customer_list:
+            strip_line = line.replace(";","  ",)
+            print(strip_line)
+    ask_which_customer_want_to_del = input("Please type which customer do you want to delete? please type linenumber (1-99)" )
+    linenum = int(ask_which_customer_want_to_del)
+    with open("model/crm/crm.csv", "r+") as f:
+        lines = f.readlines()
+        del lines[linenum-1]  
+        f.seek(0)
+        f.truncate()
+        f.writelines(lines)
+        f.close()
 
 
 def get_subscribed_emails():
     view.print_error_message("Not implemented yet.")
+
 
 
 def run_operation(option):
