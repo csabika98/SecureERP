@@ -3,8 +3,13 @@ from model.crm import crm
 from view import terminal as view
 
 
+
 def list_customers():
-    view.print_error_message("Not implemented yet.")
+    with open("model/crm/crm.csv", "r") as customer_list:
+        for line in customer_list:
+            strip_line = line.replace(";","  ",)
+            print(strip_line)
+
 
 
 def add_customer():
