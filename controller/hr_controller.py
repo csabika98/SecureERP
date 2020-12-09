@@ -1,13 +1,32 @@
+import random
+import sys
 from model.hr import hr
 from view import terminal as view
 
 
 def list_employees():
-    view.print_error_message("Not implemented yet.")
+    with open("model/hr/hr.csv", "r") as employees_list:
+        for line in employees_list:
+            strip_line = line.replace(";","  ",)
+            print(strip_line)
 
 
 def add_employee():
-    view.print_error_message("Not implemented yet.")
+    id = random.randint(0,100)
+    print(id)
+    whats_your_name = input("What's your name? ")
+    whats_your_email = input("What's your email? ")
+    you_are_subscribed =input("You are subscribed ? 1.   yes  0.  no ")
+    whats_your_name = whats_your_name + ";"
+    whats_your_email = whats_your_email + ";"
+    you_are_subscribed = you_are_subscribed + ";"
+
+    with open("model/hr/hr.csv", "a" ) as import_file:
+        import_file.write(whats_your_name)
+        import_file.write(whats_your_email)
+        import_file.write(you_are_subscribed)
+        import_file.write(str(id))
+        import_file.write("\n")
 
 
 def update_employee():
@@ -15,7 +34,19 @@ def update_employee():
 
 
 def delete_employee():
-    view.print_error_message("Not implemented yet.")
+    with open("model/hr/hr.csv", "r") as employees_list:
+        for line in employees_list:
+            strip_line = line.replace(";","  ",)
+            print(strip_line)
+    ask_which_employee_want_to_del = input("Please type which employee do you want to delete? please type linenumber (1-99)" )
+    linenum = int(ask_which_employee_want_to_del)
+    with open("model/hr/hr.csv", "r+") as f:
+        lines = f.readlines()
+        del lines[linenum-1]  
+        f.seek(0)
+        f.truncate()
+        f.writelines(lines)
+        f.close()
 
 
 def get_oldest_and_youngest():
@@ -65,15 +96,15 @@ def run_operation(option):
 
 def display_menu():
     options = ["Back to main menu",
-               "List employees",
-               "Add new employee",
-               "Update employee",
-               "Remove employee",
-               "Oldest and youngest employees",
-               "Employees average age",
-               "Employees with birthdays in the next two weeks",
-               "Employees with clearance level",
-               "Employee numbers by department"]
+            "List employees",
+            "Add new employee",
+            "Update employee",
+            "Remove employee",
+            "Oldest and youngest employees",
+            "Employees average age",
+            "Employees with birthdays in the next two weeks",
+            "Employees with clearance level",
+            "Employee numbers by department"]
     view.print_menu("Human resources", options)
 
 

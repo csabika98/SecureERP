@@ -17,9 +17,9 @@ def load_module(option):
 
 def display_menu():
     options = ["Exit program",
-               "Customer Relationship Management (CRM)",
-               "Sales",
-               "Human Resources"]
+            "Customer Relationship Management (CRM)",
+            "Sales",
+            "Human Resources"]
     view.print_menu("Main menu", options)
 
 
