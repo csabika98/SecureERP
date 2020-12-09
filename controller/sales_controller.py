@@ -1,5 +1,5 @@
 import random
-import sys
+import string
 from model.sales import sales
 from view import terminal as view
 
@@ -10,23 +10,32 @@ def list_transactions():
             strip_line = line.replace(";","  ",)
             print(strip_line)
 
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
+
+
 
 def add_transaction():
-    id = random.randint(0,100)
-    print(id)
-    whats_your_name = input("What's your name? ")
-    whats_your_email = input("What's your email? ")
-    you_are_subscribed =input("You are subscribed ? 1.   yes  0.  no ")
-    whats_your_name = whats_your_name + ";"
-    whats_your_email = whats_your_email + ";"
-    you_are_subscribed = you_are_subscribed + ";"
+    random1 = get_random_string(10)
+    random2 = get_random_string(11)
+    product = input("What's the product name? ")
+    price = input("How much does it cost? ")
+    date =input("When was the transaction made? ")
     
-
+    product += ";"
+    date += ";"
+    random1 += ";"
+    random2 += ";"
+    price += ";"
+    
     with open("model/sales/sales.csv", "a" ) as import_file:
-        import_file.write(whats_your_name)
-        import_file.write(whats_your_email)
-        import_file.write(you_are_subscribed)
-        import_file.write(str(id))
+        import_file.write(random1)
+        import_file.write(random2)
+        import_file.write(product)
+        import_file.write(price)
+        import_file.write(date)
         import_file.write("\n")
 
 def update_transaction():
