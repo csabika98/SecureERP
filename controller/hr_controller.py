@@ -1,32 +1,51 @@
 import random
-import sys
+import string
 from model.hr import hr
 from view import terminal as view
 
 
 def list_employees():
-    with open("model/hr/hr.csv", "r") as employees_list:
-        for line in employees_list:
-            strip_line = line.replace(";","  ",)
-            print(strip_line)
+    data = open("model/hr/hr.csv")
+    mylist = str(data)
+    mylist = data.read()
+    output = "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in mylist.split("\n") if item), 1))
+    print(output)
+
+
+
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
+
 
 
 def add_employee():
-    id = random.randint(0,100)
-    print(id)
+    random1 = get_random_string(10)
     whats_your_name = input("What's your name? ")
     whats_your_email = input("What's your email? ")
-    you_are_subscribed =input("You are subscribed ? 1.   yes  0.  no ")
+    birth_date =input("When were you born? yyyy-mm-dd ")
+    department = input("Please type what your department is: sales/production ")
+    clearence_level = input("Type your clearence level: 0(lowest) 7(highest) ")
     whats_your_name = whats_your_name + ";"
     whats_your_email = whats_your_email + ";"
-    you_are_subscribed = you_are_subscribed + ";"
+    birth_date = birth_date + ";"
+    random1 = random1 + ";"
+    department = department + ";"
+    clearence_level = clearence_level + ";"
 
     with open("model/hr/hr.csv", "a" ) as import_file:
+        import_file.write(str(random1))
         import_file.write(whats_your_name)
         import_file.write(whats_your_email)
-        import_file.write(you_are_subscribed)
-        import_file.write(str(id))
+        import_file.write(birth_date)
+        import_file.write(department)
+        import_file.write(clearence_level)
         import_file.write("\n")
+
 
 
 def update_employee():
@@ -34,10 +53,14 @@ def update_employee():
 
 
 def delete_employee():
-    with open("model/hr/hr.csv", "r") as employees_list:
-        for line in employees_list:
-            strip_line = line.replace(";","  ",)
-            print(strip_line)
+    data = open("model/hr/hr.csv")
+    mylist = str(data)
+    mylist = data.read()
+    output = "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in mylist.split("\n") if item), 1))
+    print(output)
     ask_which_employee_want_to_del = input("Please type which employee do you want to delete? please type linenumber (1-99)" )
     linenum = int(ask_which_employee_want_to_del)
     with open("model/hr/hr.csv", "r+") as f:
