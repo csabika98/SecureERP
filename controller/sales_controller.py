@@ -46,7 +46,30 @@ def add_transaction():
         import_file.write("\n")
 
 def update_transaction():
-    view.print_error_message("Not implemented yet.")
+    data = open("model/sales/sales.csv")
+    get_id_from_here = str(data)
+    get_id_from_here = data.read()
+    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    get_id_from_here = get_id_from_here.replace(";", "   ")
+    output = header + "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in get_id_from_here.split("\n") if item), 0))
+    print(output)
+    with open("model/sales/sales.csv", "r+") as f:
+        old_product = input("Type your old product: ")
+        new_product = input("Type your new product: ")
+        old_price = input("Type your old price: ")
+        new_price = input("Type your new price: ")
+        old_date = input("Type your old date:")
+        new_date = input("Type your new date:")
+        string = f.read()
+        string = string.replace(old_product, new_product)
+        string = string.replace(old_price, new_price)
+        string = string.replace(old_date, new_date)
+        f.truncate(0)
+        f.seek(0)
+        f.write(string)
 
 
 def delete_transaction():
