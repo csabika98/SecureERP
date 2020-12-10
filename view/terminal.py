@@ -17,7 +17,43 @@ LIGHTBLUE = '\033[94m'
 PINK = '\033[95m'
 LIGHTCYAN = '\033[96m'
 
-
+print("
+                                                                                                                 
+                                                                                                                 
+        CCCCCCCCCCCCC   SSSSSSSSSSSSSSS                AAA               RRRRRRRRRRRRRRRRR   RRRRRRRRRRRRRRRRR   
+     CCC::::::::::::C SS:::::::::::::::S              A:::A              R::::::::::::::::R  R::::::::::::::::R  
+   CC:::::::::::::::CS:::::SSSSSS::::::S             A:::::A             R::::::RRRRRR:::::R R::::::RRRRRR:::::R 
+  C:::::CCCCCCCC::::CS:::::S     SSSSSSS            A:::::::A            RR:::::R     R:::::RRR:::::R     R:::::R
+ C:::::C       CCCCCCS:::::S                       A:::::::::A             R::::R     R:::::R  R::::R     R:::::R
+C:::::C              S:::::S                      A:::::A:::::A            R::::R     R:::::R  R::::R     R:::::R
+C:::::C               S::::SSSS                  A:::::A A:::::A           R::::RRRRRR:::::R   R::::RRRRRR:::::R 
+C:::::C                SS::::::SSSSS            A:::::A   A:::::A          R:::::::::::::RR    R:::::::::::::RR  
+C:::::C                  SSS::::::::SS         A:::::A     A:::::A         R::::RRRRRR:::::R   R::::RRRRRR:::::R 
+C:::::C                     SSSSSS::::S       A:::::AAAAAAAAA:::::A        R::::R     R:::::R  R::::R     R:::::R
+C:::::C                          S:::::S     A:::::::::::::::::::::A       R::::R     R:::::R  R::::R     R:::::R
+ C:::::C       CCCCCC            S:::::S    A:::::AAAAAAAAAAAAA:::::A      R::::R     R:::::R  R::::R     R:::::R
+  C:::::CCCCCCCC::::CSSSSSSS     S:::::S   A:::::A             A:::::A   RR:::::R     R:::::RRR:::::R     R:::::R
+   CC:::::::::::::::CS::::::SSSSSS:::::S  A:::::A               A:::::A  R::::::R     R:::::RR::::::R     R:::::R
+     CCC::::::::::::CS:::::::::::::::SS  A:::::A                 A:::::A R::::::R     R:::::RR::::::R     R:::::R
+        CCCCCCCCCCCCC SSSSSSSSSSSSSSS   AAAAAAA                   AAAAAAARRRRRRRR     RRRRRRRRRRRRRRR     RRRRRRR
+                                                                                                                 
+                                                                                                                 
+                                                                                                                 
+                                                                                                                 
+                                                                                                                 
+                                                                                                                 
+                                                                                                                 
+")
+print("
+ _____  _____  _____  _   _ ______  _____   _____ ______ ______ 
+/  ___||  ___|/  __ \| | | || ___ \|  ___| |  ___|| ___ \| ___ \
+\ `--. | |__  | /  \/| | | || |_/ /| |__   | |__  | |_/ /| |_/ /
+ `--. \|  __| | |    | | | ||    / |  __|  |  __| |    / |  __/ 
+/\__/ /| |___ | \__/\| |_| || |\ \ | |___  | |___ | |\ \ | |    
+\____/ \____/  \____/ \___/ \_| \_|\____/  \____/ \_| \_|\_|    
+                                                                
+                                                                
+")
 
 def print_menu(title, list_options):
     """Prints options in standard menu format like this:

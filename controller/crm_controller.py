@@ -3,7 +3,6 @@ from model.crm import crm
 from view import terminal as view
 
 
-
 def list_customers():
     data = open("model/crm/crm.csv")
     mylist = str(data)
@@ -118,11 +117,11 @@ def run_operation(option):
 
 def display_menu():
     options = ["Back to main menu",
-               "List customers",
-               "Add new customer",
-               "Update customer",
-               "Remove customer",
-               "Subscribed customer emails"]
+            "List customers",
+            "Add new customer",
+            "Update customer",
+            "Remove customer",
+            "Subscribed customer emails"]
     view.print_menu("Customer Relationship Management", options)
 
 
