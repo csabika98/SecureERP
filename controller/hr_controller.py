@@ -8,15 +8,14 @@ def list_employees():
     data = open("model/hr/hr.csv")
     mylist = str(data)
     mylist = data.read()
-    header ="Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
+    header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
     mylist = mylist.replace(";", "   ")
     output = header + "\n".join(
-    "{}\t{}".format(line_number, line)
-    for line_number, line in enumerate(
-        (item for item in mylist.split("\n") if item), 1))
+        "{}\t{}".format(line_number, line)
+        for line_number, line in enumerate(
+            (item for item in mylist.split("\n") if item), 1))
     print(output)
 
-    
 
 def get_random_string(length):
     letters = string.ascii_lowercase
@@ -24,13 +23,13 @@ def get_random_string(length):
     return result_str
 
 
-
 def add_employee():
     random1 = get_random_string(10)
     whats_your_name = input("What's your name? ")
     whats_your_email = input("What's your email? ")
-    birth_date =input("When were you born? yyyy-mm-dd ")
-    department = input("Please type what your department is: sales/production ")
+    birth_date = input("When were you born? yyyy-mm-dd ")
+    department = input(
+        "Please type what your department is: sales/production ")
     clearence_level = input("Type your clearence level: 0(lowest) 7(highest) ")
     whats_your_name = whats_your_name + ";"
     whats_your_email = whats_your_email + ";"
@@ -39,7 +38,7 @@ def add_employee():
     department = department + ";"
     clearence_level = clearence_level + ";"
 
-    with open("model/hr/hr.csv", "a" ) as import_file:
+    with open("model/hr/hr.csv", "a") as import_file:
         import_file.write(str(random1))
         import_file.write(whats_your_name)
         import_file.write(whats_your_email)
@@ -49,9 +48,31 @@ def add_employee():
         import_file.write("\n")
 
 
-
 def update_employee():
-    view.print_error_message("Not implemented yet.")
+    data = open("model/hr/hr.csv")
+    get_id_from_here = str(data)
+    get_id_from_here = data.read()
+    header = "Sr.no.  ID           Name   DoB         Dept         Cl\n"
+    get_id_from_here = get_id_from_here.replace(";", "   ")
+    output = header + "\n".join(
+        "{}\t{}".format(line_number, line)
+        for line_number, line in enumerate(
+            (item for item in get_id_from_here.split("\n") if item), 0))
+    print(output)
+    with open("model/hr/hr.csv", "r+") as f:
+        old_name = input("Type your old name: ")
+        new_name = input("Type your new name: ")
+        old_department = input("Type your old department: ")
+        new_department = input("Type your new department: ")
+        old_clearance = input("Type your old clearance: ")
+        new_clearance = input("Type your new clearance: ")
+        string = f.read()
+        string = string.replace(old_name, new_name)
+        string = string.replace(old_department, new_department)
+        string = string.replace(old_clearance, new_clearance)
+        f.truncate(0)
+        f.seek(0)
+        f.write(string)
 
 
 def delete_employee():
@@ -59,15 +80,16 @@ def delete_employee():
     mylist = str(data)
     mylist = data.read()
     output = "\n".join(
-    "{}\t{}".format(line_number, line)
-    for line_number, line in enumerate(
-        (item for item in mylist.split("\n") if item), 1))
+        "{}\t{}".format(line_number, line)
+        for line_number, line in enumerate(
+            (item for item in mylist.split("\n") if item), 1))
     print(output)
-    ask_which_employee_want_to_del = input("Please type which employee do you want to delete? please type linenumber (1-99)" )
+    ask_which_employee_want_to_del = input(
+        "Please type which employee do you want to delete? please type linenumber (1-99)")
     linenum = int(ask_which_employee_want_to_del)
     with open("model/hr/hr.csv", "r+") as f:
         lines = f.readlines()
-        del lines[linenum-1]  
+        del lines[linenum-1]
         f.seek(0)
         f.truncate()
         f.writelines(lines)
@@ -121,15 +143,15 @@ def run_operation(option):
 
 def display_menu():
     options = ["Back to main menu",
-            "List employees",
-            "Add new employee",
-            "Update employee",
-            "Remove employee",
-            "Oldest and youngest employees",
-            "Employees average age",
-            "Employees with birthdays in the next two weeks",
-            "Employees with clearance level",
-            "Employee numbers by department"]
+               "List employees",
+               "Add new employee",
+               "Update employee",
+               "Remove employee",
+               "Oldest and youngest employees",
+               "Employees average age",
+               "Employees with birthdays in the next two weeks",
+               "Employees with clearance level",
+               "Employee numbers by department"]
     view.print_menu("Human resources", options)
 
 
