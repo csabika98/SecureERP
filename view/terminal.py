@@ -17,7 +17,7 @@ LIGHTBLUE = '\033[94m'
 PINK = '\033[95m'
 LIGHTCYAN = '\033[96m'
 
-print("
+print("""
                                                                                                                  
                                                                                                                  
         CCCCCCCCCCCCC   SSSSSSSSSSSSSSS                AAA               RRRRRRRRRRRRRRRRR   RRRRRRRRRRRRRRRRR   
@@ -38,22 +38,17 @@ C:::::C                          S:::::S     A:::::::::::::::::::::A       R::::
         CCCCCCCCCCCCC SSSSSSSSSSSSSSS   AAAAAAA                   AAAAAAARRRRRRRR     RRRRRRRRRRRRRRR     RRRRRRR
                                                                                                                  
                                                                                                                  
-                                                                                                                 
-                                                                                                                 
-                                                                                                                 
-                                                                                                                 
-                                                                                                                 
-")
-print("
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
  _____  _____  _____  _   _ ______  _____   _____ ______ ______ 
-/  ___||  ___|/  __ \| | | || ___ \|  ___| |  ___|| ___ \| ___ \
+/  ___||  ___|/  __ \| | | || ___ \|  ___| |  ___|| ___ \| ___ 
 \ `--. | |__  | /  \/| | | || |_/ /| |__   | |__  | |_/ /| |_/ /
  `--. \|  __| | |    | | | ||    / |  __|  |  __| |    / |  __/ 
 /\__/ /| |___ | \__/\| |_| || |\ \ | |___  | |___ | |\ \ | |    
 \____/ \____/  \____/ \___/ \_| \_|\____/  \____/ \_| \_|\_|    
                                                                 
-                                                                
-")
+""")
+
+
 
 def print_menu(title, list_options):
     """Prints options in standard menu format like this:
