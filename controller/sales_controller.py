@@ -5,10 +5,17 @@ from view import terminal as view
 
 
 def list_transactions():
-    with open("model/sales/sales.csv", "r") as transaction_list:
-        for line in transaction_list:
-            strip_line = line.replace(";","  ",)
-            print(strip_line)
+    data = open("model/sales/sales.csv")
+    mylist = str(data)
+    mylist = data.read()
+    header ="Sr.no.  ID              CUSTOMER(ID)     PRODUCT    PRICE         DATE  \n"
+    mylist = mylist.replace(";", "      ")
+    output = header + "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in mylist.split("\n") if item), 1))
+    print(output)
+
 
 def get_random_string(length):
     letters = string.ascii_lowercase

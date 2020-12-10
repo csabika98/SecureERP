@@ -8,13 +8,15 @@ def list_employees():
     data = open("model/hr/hr.csv")
     mylist = str(data)
     mylist = data.read()
-    output = "\n".join(
+    header ="Sr.no.  ID         NAME     EMAIL     DATE OF BIRTH  DP   C\n"
+    mylist = mylist.replace(";", " ")
+    output = header + "\n".join(
     "{}\t{}".format(line_number, line)
     for line_number, line in enumerate(
         (item for item in mylist.split("\n") if item), 1))
     print(output)
 
-
+list_employees()
 
 def get_random_string(length):
     letters = string.ascii_lowercase
