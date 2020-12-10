@@ -42,26 +42,7 @@ def add_customer():
 
 
 def update_customer():
-    data = open("model/crm/crm.csv")
-    mylist = str(data)
-    mylist = data.read()
-    output = "\n".join(
-    "{}\t{}".format(line_number, line)
-    for line_number, line in enumerate(
-        (item for item in mylist.split("\n") if item), 1))
-    print(output)
-    ask_which_cust_wanna_change = input("Please type a number: ")
-    linenum = int(ask_which_cust_wanna_change)
-    gather_old_data = open("model/crm/crm.csv", "r")
-    gather_old_data.read(linenum)
-    new_name = input("New name: ")
-    new_email = input("New email :")
-    id = random.randint(0,100)
-    gather_old_data.write(new_name)
-    gather_old_data.write(new_email)
-    gather_old_data.write(str(id))
-    gather_old_data.write("\n")
-
+    pass
     
 
 
