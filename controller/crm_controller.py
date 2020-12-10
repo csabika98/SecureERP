@@ -7,13 +7,14 @@ def list_customers():
     data = open("model/crm/crm.csv")
     mylist = str(data)
     mylist = data.read()
-    header ="Sr.no.  ID     Name         Email\n"
-    mylist = mylist.replace(";", "     ")
+    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    mylist = mylist.replace(";", "   ")
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
     for line_number, line in enumerate(
-        (item for item in mylist.split("\n") if item), 1))
+        (item for item in mylist.split("\n") if item), 0))
     print(output)
+
 
 
 def add_customer():
@@ -23,20 +24,23 @@ def add_customer():
     whats_your_email = input("What's your email? ")
     whats_your_name = whats_your_name + ";"
     whats_your_email = whats_your_email + ";"
+    subscribed = "yes" + ";"
+    not_subscribed = "no" + ";"
     id = str(id) + ";"
     if input("You are subscribed ? 0.yes/1.no ") == "0":
         print("Thanks for subscribing!")
         with open("model/crm/crmsubscribed.csv", "a+") as sub_only:
             sub_only.read()
             sub_only.write(str(id))
-            sub_only.write(whats_your_name)
             sub_only.write(whats_your_email)
+            sub_only.write(subscribed)
             sub_only.write("\n")
     else:
         with open("model/crm/crm.csv", "a+" ) as import_file:
             import_file.write(str(id))
             import_file.write(whats_your_name)
             import_file.write(whats_your_email)
+            import_file.write(not_subscribed)
             import_file.write("\n")
     
 
@@ -46,14 +50,13 @@ def update_customer():
     
 
 
-
-
-
 def delete_customer():
     data = open("model/crm/crm.csv")
     mylist = str(data)
     mylist = data.read()
-    output = "\n".join(
+    header ="Sr.no.  ID     Name        Email        Subscribed\n"
+    mylist = mylist.replace(";", "     ")
+    output = header + "\n".join(
     "{}\t{}".format(line_number, line)
     for line_number, line in enumerate(
         (item for item in mylist.split("\n") if item), 1))
@@ -69,13 +72,20 @@ def delete_customer():
         f.close()
 
 
+
+
 def get_subscribed_emails():
-     with open("model/crm/crmsubscribed.csv", "r") as customer_list:
-            i = customer_list.read()
-            empty_list = []
-            empty_list.append(i)
-            removed = empty_list.pop()[7:23]   
-            print(removed)
+    data = open("model/crm/crmsubscribed.csv")
+    mylist = str(data)
+    mylist = data.read()
+    header ="Sr.no.  ID  Email        Subscribed\n"
+    mylist = mylist.replace(";", "  ")
+    output = header + "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in mylist.split("\n") if item), 1))
+    print(output)
+
 
 
 
