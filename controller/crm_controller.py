@@ -46,8 +46,31 @@ def add_customer():
 
 
 def update_customer():
-    pass
+    data = open("model/crm/crm.csv")
+    get_id_from_here = str(data)
+    get_id_from_here = data.read()
+    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    get_id_from_here = get_id_from_here.replace(";", "   ")
+    output = header + "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in get_id_from_here.split("\n") if item), 0))
+    print(output)
+    with open("model/crm/crm.csv", "r+") as f:
+        old_email = input("Type your old email: ")
+        new_email = input("Type your new email: ")
+        old_name = input("Type your old name: ")
+        new_name = input("Type your new name: ")
+        string = f.read()
+        string = string.replace(old_email, new_email)
+        string = string.replace(old_name, new_name)
+        f.truncate(0)
+        f.seek(0)
+        f.write(string)
+
     
+
+
 
 
 def delete_customer():

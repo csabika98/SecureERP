@@ -102,41 +102,14 @@ def print_table(table, title_list):
     Args:
         table: list of lists - the table to print out
     """
-    row_width = []
-    for width in title_list:
-        row_width.append(len(width))
-    for line in range(0, len(table)):
-        for index in range(0, len(table[line])):
-            if len(table[line][index]) > row_width[index]:
-                row_width[index] = len(table[line][index])
-
-    table_lenght = 0
-    for index in range(0, len(row_width)):
-        row_width[index] += 2
-        table_lenght += row_width[index]
-
-    print(GREEN + "/" + "-" * (table_lenght+len(title_list)-1) + "\\" + RESET)
-
-    for i in range(0, len(title_list)):
-        temp = round((row_width[i] - len(title_list[i]))/2)
-        print(GREEN + "|" + " " * temp + BOLD + title_list[i], end='')
-        print(GREEN + " " * (row_width[i] - (temp + len(title_list[i]))), end='')
-    print("|" + RESET)
-
-    for line in range(0, len(table)):
-        for width in row_width:
-            print(GREEN + "|" + "-" * width, end='')
-        print("|" + RESET)
-        for index in range(0, len(table[line])):
-            temp = round((row_width[index] - len(table[line][index]))/2)
-            print(GREEN + "|" + " " * temp + BLUE + table[line][index], end='')
-            print(GREEN + " " * (row_width[index]-temp-len(table[line][index])), end='')
-        print("|" + RESET)
-
-    print(GREEN + "\\" + "-" * (table_lenght+len(title_list)-1) + "/" + RESET)
-
-    input(REVERSE + "Press enter to continue" + RESET)
-    
+    counter = 0
+    table = []
+    print("/--------------------------------\ ")
+    for i in table:
+        print("|" +i[0] + "\t" + "|"+i[1] + "\t" + "|" + i[2] + "\t" + "|" )
+    counter += 1
+    if counter < 3:
+        print("\-----------------------------------/ ") 
 
 
 def get_input(label):
