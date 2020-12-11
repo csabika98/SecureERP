@@ -1,13 +1,18 @@
+import sys
+sys.path.append(f"/{'/'.join(sys.path[0].split('/')[1:-1])}")
+from model.data_manager import read_table_from_file
 import random
 from model.crm import crm
 from view import terminal as view
+
 
 
 def list_customers():
     data = open("model/crm/crm.csv")
     mylist = str(data)
     mylist = data.read()
-    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    header ="Sr.no.  ID   Name           Email                    Subscribed\n"
+    mylist = mylist.center(70)
     mylist = mylist.replace(";", "   ")
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
@@ -49,7 +54,7 @@ def update_customer():
     data = open("model/crm/crm.csv")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
-    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    header ="Sr.no.  ID   Name           Email                    Subscribed\n"
     get_id_from_here = get_id_from_here.replace(";", "   ")
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
@@ -72,12 +77,11 @@ def update_customer():
 
 
 
-
 def delete_customer():
     data = open("model/crm/crm.csv")
     mylist = str(data)
     mylist = data.read()
-    header ="Sr.no.  ID     Name        Email        Subscribed\n"
+    header ="Sr.no.  ID   Name           Email                    Subscribed\n"
     mylist = mylist.replace(";", "     ")
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
@@ -98,7 +102,7 @@ def delete_customer():
 
 
 def get_subscribed_emails():
-    data = open("model/crm/crmsubscribed.csv")
+    """ data = open("model/crm/crmsubscribed.csv")
     mylist = str(data)
     mylist = data.read()
     header ="Sr.no.  ID  Email        Subscribed\n"
@@ -107,8 +111,12 @@ def get_subscribed_emails():
     "{}\t{}".format(line_number, line)
     for line_number, line in enumerate(
         (item for item in mylist.split("\n") if item), 1))
-    print(output)
-
+    print(output) """
+    data_table = crm.import_table()
+    email_list = []
+    for line in data_table:
+        email_list.append(line[2])
+        print(line[2])
 
 
 

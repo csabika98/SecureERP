@@ -52,7 +52,7 @@ def update_employee():
     data = open("model/hr/hr.csv")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
-    header = "Sr.no.  ID           Name   DoB         Dept         Cl\n"
+    header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
     get_id_from_here = get_id_from_here.replace(";", "   ")
     output = header + "\n".join(
         "{}\t{}".format(line_number, line)
@@ -77,15 +77,16 @@ def update_employee():
 
 def delete_employee():
     data = open("model/hr/hr.csv")
-    mylist = str(data)
-    mylist = data.read()
-    output = "\n".join(
+    get_id_from_here = str(data)
+    get_id_from_here = data.read()
+    header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
+    get_id_from_here = get_id_from_here.replace(";", "   ")
+    output = header + "\n".join(
         "{}\t{}".format(line_number, line)
         for line_number, line in enumerate(
-            (item for item in mylist.split("\n") if item), 1))
+            (item for item in get_id_from_here.split("\n") if item), 0))
     print(output)
-    ask_which_employee_want_to_del = input(
-        "Please type which employee do you want to delete? please type linenumber (1-99)")
+    ask_which_employee_want_to_del = input("Please type which employee do you want to delete? please type linenumber (1-99)")
     linenum = int(ask_which_employee_want_to_del)
     with open("model/hr/hr.csv", "r+") as f:
         lines = f.readlines()

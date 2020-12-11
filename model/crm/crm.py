@@ -10,5 +10,13 @@ Data table structure:
 from model import data_manager, util
 
 
-DATAFILE = "model/crm/crm.csv"
+DATAFILE = "model/crm/crmsubscribed.csv"
 HEADERS = ["id", "name", "email", "subscribed"]
+
+
+def import_table():
+    data_table = data_manager.read_table_from_file(DATAFILE, ";")
+    return data_table
+
+def export_table(table):
+     data_manager.write_table_to_file(DATAFILE, table, ";")

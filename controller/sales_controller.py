@@ -8,8 +8,9 @@ def list_transactions():
     data = open("model/sales/sales.csv")
     mylist = str(data)
     mylist = data.read()
-    header ="Sr.no.  ID              CUSTOMER(ID)     PRODUCT    PRICE         DATE  \n"
+    header ="Sr.no.  ID              CUSTOMER(ID)     PRODUCT            PRICE            DATE  \n"
     mylist = mylist.replace(";", "      ")
+    mylist = mylist.center(0)
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
     for line_number, line in enumerate(
@@ -49,7 +50,7 @@ def update_transaction():
     data = open("model/sales/sales.csv")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
-    header ="Sr.no.  ID   Name      Email     Subscribed\n"
+    header ="Sr.no.  ID           CUSTOMER(ID)      PRODUCT     PRICE      DATE  \n"
     get_id_from_here = get_id_from_here.replace(";", "   ")
     output = header + "\n".join(
     "{}\t{}".format(line_number, line)
@@ -73,10 +74,16 @@ def update_transaction():
 
 
 def delete_transaction():
-    with open("model/sales/sales.csv", "r") as transaction_list:
-        for line in transaction_list:
-            strip_line = line.replace(";","  ",)
-            print(strip_line)
+    data = open("model/sales/sales.csv")
+    get_id_from_here = str(data)
+    get_id_from_here = data.read()
+    header ="Sr.no.  ID           CUSTOMER(ID)      PRODUCT     PRICE      DATE  \n"
+    get_id_from_here = get_id_from_here.replace(";", "   ")
+    output = header + "\n".join(
+    "{}\t{}".format(line_number, line)
+    for line_number, line in enumerate(
+        (item for item in get_id_from_here.split("\n") if item), 0))
+    print(output)
     ask_which_transaction_want_to_del = input("Please type which transaction do you want to delete? please type linenumber (1-99)" )
     linenum = int(ask_which_transaction_want_to_del)
     with open("model/sales/sales.csv", "r+") as f:
