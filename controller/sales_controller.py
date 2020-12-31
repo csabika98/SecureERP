@@ -5,7 +5,7 @@ from view import terminal as view
 
 
 def list_transactions():
-    data = open("model/sales/sales.csv")
+    data = open("model/sales/sales.csv",encoding="utf8")
     mylist = str(data)
     mylist = data.read()
     header ="Sr.no.  ID              CUSTOMER(ID)     PRODUCT            PRICE            DATE  \n"
@@ -47,7 +47,7 @@ def add_transaction():
         import_file.write("\n")
 
 def update_transaction():
-    data = open("model/sales/sales.csv")
+    data = open("model/sales/sales.csv", encoding="utf8")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
     header ="Sr.no.  ID           CUSTOMER(ID)      PRODUCT     PRICE      DATE  \n"
@@ -74,7 +74,7 @@ def update_transaction():
 
 
 def delete_transaction():
-    data = open("model/sales/sales.csv")
+    data = open("model/sales/sales.csv", encoding="utf8")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
     header ="Sr.no.  ID           CUSTOMER(ID)      PRODUCT     PRICE      DATE  \n"

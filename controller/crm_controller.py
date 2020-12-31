@@ -6,7 +6,7 @@ from view import terminal as view
 
 
 def list_customers():
-    data = open("model/crm/crm.csv")
+    data = open("model/crm/crm.csv",encoding="utf8")
     mylist = str(data)
     mylist = data.read()
     header ="Sr.no.  ID   Name           Email                    Subscribed\n"
@@ -50,7 +50,7 @@ def add_customer():
 
 
 def update_customer():
-    data = open("model/crm/crm.csv")
+    data = open("model/crm/crm.csv", encoding="utf8")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
     header ="Sr.no.  ID   Name           Email                    Subscribed\n"
@@ -77,7 +77,7 @@ def update_customer():
 
 
 def delete_customer():
-    data = open("model/crm/crm.csv")
+    data = open("model/crm/crm.csv", encoding="utf8")
     mylist = str(data)
     mylist = data.read()
     header ="Sr.no.  ID   Name           Email                    Subscribed\n"

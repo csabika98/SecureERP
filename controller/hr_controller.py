@@ -5,7 +5,7 @@ from view import terminal as view
 
 
 def list_employees():
-    data = open("model/hr/hr.csv")
+    data = open("model/hr/hr.csv", encoding="utf8")
     mylist = str(data)
     mylist = data.read()
     header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
@@ -49,7 +49,7 @@ def add_employee():
 
 
 def update_employee():
-    data = open("model/hr/hr.csv")
+    data = open("model/hr/hr.csv", encoding="utf8")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
     header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
@@ -76,7 +76,7 @@ def update_employee():
 
 
 def delete_employee():
-    data = open("model/hr/hr.csv")
+    data = open("model/hr/hr.csv", encoding="utf8")
     get_id_from_here = str(data)
     get_id_from_here = data.read()
     header = "Sr.no.  ID           NAME     EMAIL          DATE OF BIRTH   DP     Clearance level(0 LOW - 7 HIGHEST)\n"
