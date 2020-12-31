@@ -1,6 +1,4 @@
 import sys
-sys.path.append(f"/{'/'.join(sys.path[0].split('/')[1:-1])}")
-from model.data_manager import read_table_from_file
 import random
 from model.crm import crm
 from view import terminal as view
@@ -46,6 +44,7 @@ def add_customer():
             import_file.write(whats_your_name)
             import_file.write(whats_your_email)
             import_file.write(not_subscribed)
+            import_file.write("\n")
             import_file.write("\n")
     
 
@@ -102,16 +101,6 @@ def delete_customer():
 
 
 def get_subscribed_emails():
-    """ data = open("model/crm/crmsubscribed.csv")
-    mylist = str(data)
-    mylist = data.read()
-    header ="Sr.no.  ID  Email        Subscribed\n"
-    mylist = mylist.replace(";", "  ")
-    output = header + "\n".join(
-    "{}\t{}".format(line_number, line)
-    for line_number, line in enumerate(
-        (item for item in mylist.split("\n") if item), 1))
-    print(output) """
     data_table = crm.import_table()
     email_list = []
     for line in data_table:
