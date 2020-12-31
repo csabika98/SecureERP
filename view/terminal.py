@@ -86,18 +86,7 @@ def print_general_results(result, label):
     lists/tuples (like "@label: \n  @item1; @item2"), and dictionaries
     (like "@label \n  @key1: @value1; @key2: @value2")
     """
-    if type(result) is int:
-        print({ label: int })
-    if type(result) is float:
-        print(({ label: float }))
-    if type(result) is str:
-        print(({ label: str }))
-    if type(result) is list:
-        print(({ label: list}))
-    if type(result) is tuple:
-        print(({ label: tuple}))
-    if type(result) is dict:
-        print(({ label: dict}))
+    pass
 
     
 
@@ -115,15 +104,7 @@ def print_table(table, title_list):
     Args:
         table: list of lists - the table to print out
     """
-    counter = 0
-    table = []
-    print("/--------------------------------\ ")
-    for i in table:
-        print("|" +i[0] + "\t" + "|"+i[1] + "\t" + "|" + i[2] + "\t" + "|" )
-    counter += 1
-    if counter < 3:
-        print("\-----------------------------------/ ") 
-
+    pass
 
 def get_input(label):
     """Gets single string input from the user.
