@@ -12,7 +12,7 @@ def read_table_from_file(file_name, separator=';'):
         The data parsed into a list of lists.
     """
     try:
-        with open(file_name, "r") as file:
+        with open(file_name, "r",encoding="utf8") as file:
             lines = file.readlines()
         return [element.replace("\n", "").split(separator) for element in lines]
     except IOError:
