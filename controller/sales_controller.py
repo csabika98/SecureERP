@@ -95,7 +95,12 @@ def delete_transaction():
         f.close()
 
 def get_biggest_revenue_transaction():
-    view.print_error_message("Not implemented yet.")
+    data_table = sales.import_table()
+    rev_list = []
+    for line in data_table:
+        revenues = rev_list.append(line[3])
+        print(line[3])
+    print("")
 
 
 def get_biggest_revenue_product():

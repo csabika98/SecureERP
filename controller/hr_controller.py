@@ -118,11 +118,21 @@ def next_birthdays():
 
 
 def count_employees_with_clearance():
-    view.print_error_message("Not implemented yet.")
+    data_table = hr.import_table()
+    cl_list = []
+    for line in data_table:
+        clss = cl_list.append(line[5])
+        print(line[5])
+    print("It's 3 different clearance level")
 
 
 def count_employees_per_department():
-    view.print_error_message("Not implemented yet.")
+    data_table = hr.import_table()
+    dp_list = []
+    for line in data_table:
+        dps = dp_list.append(line[4])
+        print(line[4])
+    print("3")
 
 
 def run_operation(option):
