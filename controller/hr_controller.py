@@ -98,7 +98,11 @@ def delete_employee():
 
 
 def get_oldest_and_youngest():
-    view.print_error_message("Not implemented yet.")
+    data_table = hr.import_table()
+    email_list = []
+    for line in data_table:
+        email_list.append(line[3])
+        print(line[3])
 
 
 def get_average_age():
